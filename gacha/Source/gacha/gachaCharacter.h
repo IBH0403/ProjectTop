@@ -4,6 +4,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "Logging/LogMacros.h"
+#include "Public/Item.h"
 #include "gachaCharacter.generated.h"
 
 class USpringArmComponent;
@@ -44,15 +45,18 @@ class AgachaCharacter : public ACharacter
 	UInputAction* LookAction;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
-	UInputAction* DrawResultAction;
+	UInputAction* DrawItemAction;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
-	UInputAction* DrawItemAction;
+	UInputAction* StopSequenceAction;
+
 
 
 public:
 	AgachaCharacter();
-	
+
+	UFUNCTION(BlueprintImplementableEvent, Category = "Widget")
+	void CreateItemInfoWidget(const FItem& FItem);
 
 protected:
 
@@ -61,8 +65,8 @@ protected:
 
 	/** Called for looking input */
 	void Look(const FInputActionValue& Value);
-	void DrawResult(const FInputActionValue& Value);
 	void DrawItem();
+	void StopSequence();
 
 protected:
 	// APawn interface

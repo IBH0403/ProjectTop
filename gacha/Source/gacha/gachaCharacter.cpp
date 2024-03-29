@@ -91,8 +91,8 @@ void AgachaCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComp
 		// Looking
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &AgachaCharacter::Look);
 
-		EnhancedInputComponent->BindAction(DrawResultAction, ETriggerEvent::Triggered, this, &AgachaCharacter::DrawResult);
 		EnhancedInputComponent->BindAction(DrawItemAction, ETriggerEvent::Triggered, this, &AgachaCharacter::DrawItem);
+		EnhancedInputComponent->BindAction(StopSequenceAction, ETriggerEvent::Triggered, this, &AgachaCharacter::StopSequence);
 	}
 	else
 	{
@@ -136,16 +136,15 @@ void AgachaCharacter::Look(const FInputActionValue& Value)
 	}
 }
 
-
-
-void AgachaCharacter::DrawResult(const FInputActionValue& Value)
+void AgachaCharacter::StopSequence()
 {
-	AgachaGameMode* GameMode = Cast<AgachaGameMode>(UGameplayStatics::GetGameMode(this));
+	AgachaGameMode* GameMode = Cast<AgachaGameMode>(GetWorld()->GetAuthGameMode());
 	if (GameMode)
 	{
-		GameMode->DrawResult();
+		GameMode->StopSequence();
 	}
 }
+
 
 void AgachaCharacter::DrawItem()
 {
@@ -164,5 +163,6 @@ void AgachaCharacter::DrawItem()
 			FString ItemInfo = FString::Printf(TEXT("Drawn Item: %s (Grade %d)"), *DrawnItem.ItemName, DrawnItem.ItemGrade);
 			GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, *ItemInfo);
 		}
+		CreateItemInfoWidget(DrawnItem);
 	}
 }

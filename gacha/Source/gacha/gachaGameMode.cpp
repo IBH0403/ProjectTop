@@ -6,6 +6,7 @@
 #include "Engine/DataTable.h"
 #include <algorithm> // std::find_if 사용
 #include "Engine/World.h"
+#include "Public/WBP_ItemInfo.h"
 #include "Runtime/LevelSequence/Public/LevelSequenceActor.h"
 #include "Runtime/LevelSequence/Public/LevelSequencePlayer.h"
 #include "Runtime/LevelSequence/Public/LevelSequence.h"
@@ -22,6 +23,11 @@ AgachaGameMode::AgachaGameMode()
 		DefaultPawnClass = PlayerPawnBPClass.Class;
 	}
 }
+
+//void AgachaGameMode::OnSequenceFinished()
+//{
+//
+//}
 
 void AgachaGameMode::PlaySequence(const FString& SequencePath)
 {
@@ -46,11 +52,21 @@ void AgachaGameMode::PlaySequence(const FString& SequencePath)
     // 레벨 시퀀스 액터와 플레이어 생성
     FMovieSceneSequencePlaybackSettings Settings;
     ALevelSequenceActor* LevelSequenceActor;
-    ULevelSequencePlayer* LevelSequencePlayer = ULevelSequencePlayer::CreateLevelSequencePlayer(World, LevelSequence, Settings, LevelSequenceActor);
+    LevelSequencePlayer = ULevelSequencePlayer::CreateLevelSequencePlayer(World, LevelSequence, Settings, LevelSequenceActor);
 
     if (LevelSequencePlayer)
     {
         LevelSequencePlayer->Play();
+        //LevelSequencePlayer->OnFinished.AddDynamic(this, &AgachaGameMode::OnSequenceFinished);
+    }
+}
+
+void AgachaGameMode::StopSequence()
+{
+    if (LevelSequencePlayer)
+    {
+        LevelSequencePlayer->Stop();
+        LevelSequencePlayer->OnFinished.Broadcast();
     }
 }
 
@@ -79,6 +95,8 @@ FItem AgachaGameMode::DrawItemTable(const UDataTable* ItemDataTable)
     {
         int32 RandomIndex = FMath::RandRange(0, ItemsOfGrade.Num() - 1);
         SelectedItem = *ItemsOfGrade[RandomIndex]; // 안전한 접근을 위해 IsValidIndex 검사 생략
+        CurrentItemInfo.ItemName = SelectedItem.ItemName;
+        CurrentItemInfo.ItemGrade = SelectedItem.ItemGrade;
     }
     else
     {
@@ -106,36 +124,4 @@ FItem AgachaGameMode::DrawItemTable(const UDataTable* ItemDataTable)
     }
 
     return SelectedItem;
-}
-
-
-void AgachaGameMode::DrawResult()
-{
-    int32 Result = GetRandomResult();
-
-    FString ResultString;
-    if (Result >= 0 && Result < 60) // 0~59 ������ ����� ���� ó��
-    {
-        ResultString = TEXT("60% N grade");
-    }
-    else if (Result >= 60 && Result < 85) // 60~84 ������ ��� (25% Ȯ��)�� ���� ó��
-    {
-        ResultString = TEXT("25% R grade");
-    }
-    else if (Result >= 85 && Result < 97) // 85~96 ������ ��� (12% Ȯ��)�� ���� ó��
-    {
-        ResultString = TEXT("12% SR grade");
-    }
-    else if (Result >= 97 && Result < 100) // 97~99 ������ ��� (3% Ȯ��)�� ���� ó��
-    {
-        ResultString = TEXT("3% UR grade");
-    }
-
-    GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, *ResultString);
-}
-
-
-int32 AgachaGameMode::GetRandomResult() const
-{
-    return FMath::RandRange(0, 99); // 0~99 ���� ���� �� ����
 }
