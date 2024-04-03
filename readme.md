@@ -1,89 +1,97 @@
-<div align=center>
 
-<br>
-<br>
+![header](https://capsule-render.vercel.app/api?type=waving&color=gradient&height=180&section=header&text=%E2%98%95%EF%B8%8F재미원툴&fontSize=32&animation=fadeIn&fontAlignY=36&fontColor=ffffff)
 
-<img src="/uploads/16d83ba791d5d459c034774529a9f8b0/main.JPG"/>
+<hr>
 
-<br>
-<br>
-<br>
-
-# 서비스 소개
-
-팝콘은 팝업스토어 정보를 쉽고 편리하게 보실 수 있는 플랫폼입니다.
-
-AI이미지 추천, 좋아요 기반 추천, POPBTI를 통한 추천을 활용하여 당신에게 맞는 팝업스토어를 찾고
-
-AR카메라를 이용한 다양한 인증 사진도 찍으실 수 있습니다.
-
-[팝콘 바로가기](https://i10c211.p.ssafy.io/)
-
-<br>
-<br>
-<br>
-
-# 프로젝트 소개
-
-SSAFY 10기 2학기 공통 프로젝트
-
-24.01. ~ 23.02.16 (6주)
-
-총 6명 - 문철환(팀장), 박예분, 이정민, 김우태, 임승연, 위세영
-
-<br>
-<br>
-<br>
-
-# 주요 화면
-
-|||
+# 프로젝트 개요
+### 개발 기간
+|개발 기간|2024.02.19 ~ 2024.04.04|
 |---|---|
-|<img src="/uploads/d8b59f584542a34a2f4d2e77f5991c08/pwa01.gif" width="300" height="500">|<img src="/uploads/e2a6fc1016055ba72fd32c3d97288f10/main01.gif" width="300" height="500">|
-|`PWA` 홈페이지, 앱|`메인 화면` 서비스 소개|
-|<img src="/uploads/018ed2302ec1baa05b919e08bb04147d/지도페이지1.gif" width="300" height="500">|<img src="/uploads/d2cb88cf001436013b2599e8c7eeb418/상세페이지.gif" width="300" height="500">|
-|`맵 기반 검색` 카테고리, 날짜|`상세 페이지` 소개, 꿀팁, 리뷰 통계, 리뷰|
-|<img src="/uploads/a4295620e46ebef33be83e5b0bf5bcaa/ARCode.gif" width="300" height="500">|<img src="/uploads/9d1d3c4bcad32078e4db3795235b524a/ARF.gif" width="300" height="500">|
-|`AR 카메라` 전면 카메라|`AR 카메라` 후면 카메라|
-|<img src="/uploads/24d4ebb3dcbd31a6f4e27d1e9ea6f770/팝비티아이.gif" width="300" height="500">|<img src="/uploads/1f3df0b90d73ae463f7034987e4f7da7/ai01.gif" width="300" height="500">|
-|`맞춤 추천` POPBTI 검사 결과 기반 추천 맟 공유|`맞춤 추천` AI 이미지 분석 결과 기반 추천|
-|<img src="/uploads/4dc2d04dcb458016c1f8ea159d22e18b/good01.gif" width="300" height="500">|<img src="">|
-|`맞춤 추천` 로그인 유저 좋아요 기반 추천|`푸쉬 알림` 팝업 알림|
 
-<br>
-<br>
-<br>
+### 프로젝트 소개
+언리얼엔진5를 활용하여 각 층의 미션을 달성하여 총 7층의 탑을 오르는 게임
 
-# 개발 환경
+### 팀 소개
 
-**FE** | `Node`, `Vue`, `HTML`, `CSS`
+|팀원|역할|
+|---|---|
+|👼강찬우|마을|
+|👶김우태|2층|
+|😁김요한|3층|
+|👩이정민|7층, 몬스터AI|
+|😄황인범|1층, 뽑기|
+|👦한정수|5층, 인벤토리 |
 
-**BE** | `MARIADB` `S3`
- 
-**BE - API** | `Java` `SpringBoot` `MyBatis` `SpringSecurity` `Postman` `JWT`
 
-**BE - Analysis** | `Python` `Flask`
 
-**CI/CD** | `AWS` `EC2` `Docker` `Nginx` `Firebase`
+# 🔨 기술 스택 🔨
+<div style="display:flex; flex-direction:column; align-items:flex-start;">
+    <!-- Backend -->
+    <p><strong>UnrealEngine5</strong></p>
 
-<br>
-<br>
-<br>
+# 게임명
+탑 정상을 향하여
 
-# 아키텍처
+## 게임 개요
 
-<img width="70%" src="/uploads/349b4b68c808e50a9ab57488d32873da/archi.png">
+이 게임은 각 층의 미션을 달성하며 탑을 오르는 게임입니다. 플레이어는 다양한 적과 함정을 극복하고, 강력한 보스를 물리치며 최고층을 향해 나아가게 됩니다.
 
-<br>
-<br>
-<br>
+## 게임플레이
 
-# ERD
+### 기본 정보
 
-<img width="70%" src="/uploads/94c4c41622d48aac742b8ef0219de0e0/popcon_erd.png">
+- **플레이 타임**: 평균 30분
+- **시작 지점**: 최초 플레이 시 마을에서 시작, 이후 플레이어 소유의 기지 근처에서 시작
 
-<br>
-<br>
-<br>
+### 던전 타입
 
-</div>
+- 보스전 (1:1 전투)
+- 몬스터 무리 사냥
+- 함정방 탈출
+
+
+### 조작 방법
+
+| 키       | 기능                  |
+| -------- | --------------------- |
+| W, A, S, D | 이동                |
+| 마우스    | 카메라 시점 조절       |
+| E        | 상호작용              |
+| 스페이스바 | 점프                 |
+| Shift    | 대쉬                |
+| 1 ~ 4    | 스킬 사용              |
+
+### 스킬 시스템
+
+- **액티브 스킬**: 대쉬 (무적 판정)
+
+### 장비 시스템
+
+- **무기 랜덤박스**: 게임 중 획득한 재화로 구매 가능
+- **레어도**: 무기는 레어도에 따라 추가 스텟 옵션 부여
+
+## UI 설계
+
+### 인벤토리 
+
+- 획득한 아이템 관리, 판매 및 폐기 기능 포함
+
+### 무기 랜덤박스
+- 확률적으로 아이템 획득
+
+### NPC
+- 캐릭터와 상호작용 가능
+
+## 세부 맵 설정
+
+|층|맵 형태|
+|---|---|
+|0층|마을|
+|1층|몬스터섬멸|
+|2층|미궁탈출|
+|3층|몬스터섬멸|
+|4층|중간보스|
+|5층|장애물피하기|
+|6층|몬스터 섬멸|
+|7층|보스|
+
