@@ -1,17 +1,3 @@
-// StudyProject.Target.cs
-
-using UnrealBuildTool;
-using System.Collections.Generic;
-using System;
-
-public class StudyProjectTarget : TargetRules
-{
-    public StudyProjectTarget(TargetInfo Target) : base(Target)
-    {
-        Type = TargetType.Game;
-        DefaultBuildSettings = BuildSettingsVersion.V2;
-        IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_3;
-        ExtraModuleNames.Add("StudyProject");
-        ExtraModuleNames.Add("StudyProjectSettings");
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:b9c2fd9f41da5fb59b4973fe47486a660b822e00365b155783ba1bf5fa7681d4
+size 592
