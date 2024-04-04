@@ -1,0 +1,25 @@
+ItemID,ItemID,ItemName,ItemGrade
+double1,double1,낡은 쌍검,1
+twohand1,twohand1,낡은 대검,1
+sword1,sword1,낡은 한손검,1
+book1,book1,낡은 마법서,1
+wand1,wand1,낡은 완드,1
+staff1,staff1,낡은 스태프,1
+double2,double2,모험가의 쌍검,2
+twohand2,twohand2,모험가의 대검,2
+sword2,sword2,모험가의 한손검,2
+book2,book2,모험가의 마법서,2
+wand2,wand2,모험가의 완드,2
+staff2,staff2,모험가의 스태프,2
+double3,double3,예리한 쌍검,3
+twohand3,twohand3,단단한 대검,3
+sword3,sword3,날카로운 한손검,3
+book3,book3,기묘한 마법책,3
+wand3,wand3,축복받은 완드,3
+staff3,staff3,신비로운 스태프,3
+double4,double4,간장/막야,4
+twohand4,twohand4,프라가라흐,4
+sword4,sword4,그람,4
+book4,book4,네크로노미콘,4
+wand4,wand4,아스트라페,4
+staff4,staff4,카두케우스,4

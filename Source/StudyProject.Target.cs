@@ -13,5 +13,7 @@ public class StudyProjectTarget : TargetRules
         IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_3;
         ExtraModuleNames.Add("StudyProject");
         ExtraModuleNames.Add("StudyProjectSettings");
+        ExtraModuleNames.Add("ProjectTop");
+        ExtraModuleNames.Add("InventoryCppStudy");
     }
 }
